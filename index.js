@@ -14,6 +14,8 @@ let eg = new EGClient({
 });
 
 (async _ => {
+    
+    var c_party;
 
     if(!await eg.init() || !await eg.login())
         throw 'Cannot connect to Epic Games servers...';
@@ -33,6 +35,8 @@ let eg = new EGClient({
 
     fortnite.communicator.on('party:invitation', async invitation => {
 
+        c_party = invitation.party;
+        
         invitation.party.me.setBRCharacter('/Game/Athena/Items/Cosmetics/Characters/CID_029_Athena_Commando_F_Halloween.CID_029_Athena_Commando_F_Halloween');
         
         await invitation.accept();
@@ -46,9 +50,34 @@ let eg = new EGClient({
         if(data.message == 'ping'){
               communicator.sendMessage(data.friend.id, 'pong');
         }
+        
+      var args = data.message.split(" ");
+      if (args[0] == "!skin"){
+          c_party.members.forEach(async member => {
+              try{
+                    member.setBRCharacter("/Game/Athena/Items/Cosmetics/Characters/" + args[1] + "." + args[1], member.jid);
+              }catch(e){
+                  communicator.sendMessage(data.friend.id, 'cant set skin because it is invalid skin!');
+              }
+          });
+      }
+      if (args[0] == "!emote"){
+          c_party.members.forEach(async member => {
+              try{
+                    member.setBRCharacter("/Game/Athena/Items/Cosmetics/Dances/" + args[1] + "." + args[1], member.jid);
+              }catch(e){
+                  communicator.sendMessage(data.friend.id, 'cant set emote because it is invalid emote!');
+              }
+          });
+      }
+      if(args[0] == "!stop"){
+        c_party.members.forEach(async member => {
+          member.clearEmote(member.jid);
+        });
+      }
 
     });
 
-/* rest of your code goes here */
+    /* rest of your code goes here */
 
 })();
