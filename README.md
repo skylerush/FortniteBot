@@ -8,5 +8,5 @@ and you also need to download loadsh
 using the command                                                                                              
 npm i loadsh --save
 
-and the after configurating your setting in the app simply do 
+and the after configurating your setting in the app simply do                                                                           
 node index.js
