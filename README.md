@@ -1,5 +1,5 @@
 # FortniteBot
-this is fortinte discord bot that showing skins and entering party's
+this is fortinte bot that showing skins and entering party's
 using Kysune library
 can be download in the following links                                                                                              
 https://github.com/SzymonLisowiec/node-epicgames-client                             
