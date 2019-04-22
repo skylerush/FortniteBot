@@ -75,7 +75,7 @@ let eg = new EGClient({
       if (args[0] == "!backpack"){
           c_party.members.forEach(async member => {
               try{
-                    member.setBRPickaxe("/Game/Athena/Items/Cosmetics/Backpack/" + args[1] + "." + args[1], member.jid);
+                    member.setBackpack("/Game/Athena/Items/Cosmetics/Backpack/" + args[1] + "." + args[1], member.jid);
               }catch(e){
                   communicator.sendMessage(data.friend.id, 'cant set emote because it is invalid pickaxe!');
               }
