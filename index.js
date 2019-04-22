@@ -91,6 +91,20 @@ let eg = new EGClient({
               }
           });
       }
+        
+      if(args[0] == "ready"){
+          if(args[1] == "on" || args[1] == "off") {
+             c_party.members.forEach(async member => {
+              try{
+                    member.setReady(args[1] == "on" ? true : false, member.jid);
+              }catch(e){
+                  communicator.sendMessage(data.friend.id, 'Cant set ready because it is unknown error!');
+              }
+             }); 
+          }else{
+              communicator.sendMessage(data.friend.id, 'Cant set ready because it is invalid swtich!');
+          }
+      }
      
       if(args[0] == "!stop"){
         c_party.members.forEach(async member => {
