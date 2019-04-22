@@ -64,7 +64,7 @@ let eg = new EGClient({
       if (args[0] == "!emote"){
           c_party.members.forEach(async member => {
               try{
-                    member.setBRCharacter("/Game/Athena/Items/Cosmetics/Dances/" + args[1] + "." + args[1], member.jid);
+                    member.setEmote("/Game/Athena/Items/Cosmetics/Dances/" + args[1] + "." + args[1], member.jid);
               }catch(e){
                   communicator.sendMessage(data.friend.id, 'cant set emote because it is invalid emote!');
               }
