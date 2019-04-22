@@ -92,7 +92,7 @@ let eg = new EGClient({
           });
       }
         
-      if(args[0] == "ready"){
+      if(args[0] == "!ready"){
           if(args[1] == "on" || args[1] == "off") {
              c_party.members.forEach(async member => {
               try{
