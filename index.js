@@ -55,7 +55,9 @@ let eg = new EGClient({
       if (args[0] == "!skin"){
           c_party.members.forEach(async member => {
               try{
+                    member.clearEmote(member.jid);
                     member.setBRCharacter("/Game/Athena/Items/Cosmetics/Characters/" + args[1] + "." + args[1], member.jid);
+                    member.clearEmote(member.jid);
               }catch(e){
                   communicator.sendMessage(data.friend.id, 'cant set skin because it is invalid skin!');
               }
