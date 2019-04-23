@@ -1,7 +1,9 @@
 # FortniteBot
 this is fortinte bot that showing skins and entering party's                                                                             
 using Kysune library                                                                                                                     
-can be download in the following command's                                                                                              
+can be download in the following command's
+
+This bot runs on Node.js download Node here https://nodejs.org/en/download/
 
 To get the bot working open a cmd window and run this in the directory you want to install the bot in
 
