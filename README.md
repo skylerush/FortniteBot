@@ -3,16 +3,13 @@ this is fortinte bot that showing skins and entering party's
 using Kysune library                                                                                                                     
 can be download in the following command's
 
-This bot runs on Node.js download Node here https://nodejs.org/en/download/
 
-To get the bot working open a cmd window and run this in the directory you want to install the bot in
+HOW TO USE (For Beginners)
 
-npm i node epicgames-client --save                                                
-npm i node epicgames-fortnite-client --save                                                                                              
-npm i loadsh --save           
- 
-the index.js will then be placed inside the folder where you have the folder "node_modules".
-Edit the index.js and on line 11 inside the quotes put your epic games account email and password in the one below.
+Step 1) Download Node.JS https://nodejs.org/en/download/ install it
 
-and the after configurating your setting in the app simply do                                                                           
-node index.js
+Step 2) Run npm.bat
+
+Step 3) Edit the bot.js and on line 11 inside the quotes put your epic games account email and password in the one below.
+
+Step 4) Run Bot-Start.bat
