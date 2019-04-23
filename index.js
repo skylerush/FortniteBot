@@ -51,7 +51,7 @@ let eg = new EGClient({
               communicator.sendMessage(data.friend.id, 'Commands: !skin, !emote, !backbling, !banner, !stop');
         }
         
-      var args = data.message.split(" ");
+      var args = data.message.split(" ").toUpperCase;
       if (args[0] == "!skin"){
           c_party.members.forEach(async member => {
               try{
@@ -61,6 +61,10 @@ let eg = new EGClient({
                   communicator.sendMessage(data.friend.id, 'Cant set skin because it is invalid skin!');
               }
           });
+      }
+      if (args[0] == "!status"){
+            fortnite.communicator.updateStatus(args[1]);
+            communicator.updateStatus(args[1]);
       }
       if (args[0] == "!emote"){
           c_party.members.forEach(async member => {
