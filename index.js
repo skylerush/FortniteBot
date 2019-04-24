@@ -51,7 +51,7 @@ let eg = new EGClient({
               communicator.sendMessage(data.friend.id, 'Commands: !skin, !emote, !backbling, !banner, !stop');
         }
         
-      var args = data.message.split(" ").toUpperCase;
+      var args = data.message.split(" ");
       if (args[0] == "!skin"){
           c_party.members.forEach(async member => {
               try{
@@ -87,6 +87,7 @@ let eg = new EGClient({
       }
      
       if (args[0] == "!banner"){
+          args = data.message.split(" ").toUpperCase;
           c_party.members.forEach(async member => {
               try{
                     member.setBRBanner(args[1], args[2], 99999999, member.jid);
