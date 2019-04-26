@@ -69,21 +69,30 @@ let eg = new EGClient({
                     } catch(e) {
                         console.log(e);
                     }
-                })
+                });
             }
       if (args[0] == "!status"){
             fortnite.communicator.updateStatus(args[1]);
             communicator.updateStatus(args[1]);
       }
       if (args[0] == "!emote"){
-          c_party.members.forEach(async member => {
-              try{
-                    member.setEmote("/Game/Athena/Items/Cosmetics/Dances/" + args[1] + "." + args[1], member.jid);
-              }catch(e){
-                  communicator.sendMessage(data.friend.id, 'Cant set emote because it is invalid emote!');
-              }
-          });
-      }
+         var cosmetic = args[1].substr(args[0], args[0].length);
+                    try {
+                        request({
+                            uri: `https://api-public-service.battledash.co/fortnite/cosmetics/search?q=${cosmetic}`,
+                            json: true
+                        }).then(search => {
+                            if(search.id){
+                                 member.setEmote(`/Game/Athena/Items/Cosmetics/Dances/${search.id}.${search.id}`, member.jid);
+                            }else{
+                                communicator.sendMessage(data.friend.id, 'Cant set emote because it is emote skin!');
+                            }
+                        });
+                    } catch(e) {
+                        console.log(e);
+                    }
+                })
+            }
      
       if (args[0] == "!backbling"){
           c_party.members.forEach(async member => {
