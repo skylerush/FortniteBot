@@ -76,7 +76,8 @@ let eg = new EGClient({
             communicator.updateStatus(args[1]);
       }
       if (args[0] == "!emote"){
-         var cosmetic = args[1].substr(args[0], args[0].length);
+           c_party.members.forEach(async member => {
+             var cosmetic = args[1].substr(args[0], args[0].length);
                     try {
                         request({
                             uri: `https://api-public-service.battledash.co/fortnite/cosmetics/search?q=${cosmetic}`,
