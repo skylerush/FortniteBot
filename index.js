@@ -59,9 +59,9 @@ let eg = new EGClient({
                         request({
                             uri: `https://api-public-service.battledash.co/fortnite/cosmetics/search?q=${cosmetic}`,
                             json: true
-                        }).then(search => {
-                            if(search.id){
-                                member.setBRCharacter(`/Game/Athena/Items/Cosmetics/Characters/${search.id}.${search.id}`, member.jid);
+                        }).then(query => {
+                            if(query.id){
+                                member.setBRCharacter(`/Game/Athena/Items/Cosmetics/Characters/${query.id}.${query.id}`, member.jid);
                             }else{
                                 communicator.sendMessage(data.friend.id, 'Cant set skin because it is invalid skin!');
                             }
@@ -81,9 +81,9 @@ let eg = new EGClient({
                         request({
                             uri: `https://api-public-service.battledash.co/fortnite/cosmetics/search?q=${cosmetic}`,
                             json: true
-                        }).then(search => {
-                            if(search.id){
-                                 member.setEmote(`/Game/Athena/Items/Cosmetics/Dances/${search.id}.${search.id}`, member.jid);
+                        }).then(query => {
+                            if(query.id){
+                                 member.setEmote(`/Game/Athena/Items/Cosmetics/Dances/${query.id}.${query.id}`, member.jid);
                             }else{
                                 communicator.sendMessage(data.friend.id, 'Cant set emote because it is emote skin!');
                             }
