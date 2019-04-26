@@ -52,16 +52,25 @@ let eg = new EGClient({
         }
         
       var args = data.message.split(" ");
-      if (args[0] == "!skin"){
-          c_party.members.forEach(async member => {
-              try{
-                    member.clearEmote(member.jid);
-                    member.setBRCharacter("/Game/Athena/Items/Cosmetics/Characters/" + args[1] + "." + args[1], member.jid);
-              }catch(e){
-                  communicator.sendMessage(data.friend.id, 'Cant set skin because it is invalid skin!');
-              }
-          });
-      }
+      if(args[0] == "!skin") {
+                c_party.members.forEach(async member => {
+                    var cosmetic = args[1].substr(args[0], args[0].length);
+                    try {
+                        request({
+                            uri: `https://api-public-service.battledash.co/fortnite/cosmetics/search?q=${cosmetic}`,
+                            json: true
+                        }).then(search => {
+                            if(search.id){
+                                member.setBRCharacter(`/Game/Athena/Items/Cosmetics/Characters/${search.id}.${search.id}`, member.jid);
+                            }else{
+                                communicator.sendMessage(data.friend.id, 'Cant set skin because it is invalid skin!');
+                            }
+                        });
+                    } catch(e) {
+                        console.log(e);
+                    }
+                })
+            }
       if (args[0] == "!status"){
             fortnite.communicator.updateStatus(args[1]);
             communicator.updateStatus(args[1]);
