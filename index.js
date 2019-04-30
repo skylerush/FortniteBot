@@ -1,3 +1,4 @@
+const request = require("request-promise");
 const EGClient = require('epicgames-client').Client;
 const Fortnite = require('epicgames-fortnite-client');
 const EInputType  = require('epicgames-client').EInputType;
