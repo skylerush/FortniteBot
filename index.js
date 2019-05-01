@@ -73,8 +73,15 @@ let eg = new EGClient({
                 });
             }
       if (args[0] == "!status"){
-            fortnite.communicator.updateStatus(args[1]);
-            communicator.updateStatus(args[1]);
+          
+          var g_stt = '';
+          
+          for(var i = 1;i <= args.length;i++){
+          g_stt += args[i];
+          }
+          
+            fortnite.communicator.updateStatus(g_stt]);
+            communicator.updateStatus(g_stt]);
       }
       if (args[0] == "!emote"){
            c_party.members.forEach(async member => {
